@@ -1,5 +1,6 @@
 package ampliame;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import chatlib.Chatlib;
@@ -34,9 +35,9 @@ public abstract class Sala {
     this.finalizada = true;
   }
 
-  double costoFinal() {
+  public double costoConfirmado() {
     if (!this.finalizada) {
-      throw new IllegalStateException("No está finalizada");
+      return 0;
     }
     return costoHastaElMomento();
   }
@@ -44,5 +45,6 @@ public abstract class Sala {
   protected abstract double costoHastaElMomento();
 
   public abstract void iniciar();
+  
 
 }

@@ -24,4 +24,10 @@ public class SalaPartida extends Sala {
   public double costoHastaElMomento() {
     return subsalas.stream().mapToDouble(it -> it.costoHastaElMomento()).sum();
   }
+  
+  @Override
+  void finalizar() {
+    super.finalizar();
+    this.subsalas.forEach(it -> it.finalizar());
+  }
 }
